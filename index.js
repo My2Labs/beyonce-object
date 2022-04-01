@@ -197,15 +197,25 @@ console.log(uniqueHairstyles())
 
 // 19. Return an object where the properties are song names and the value is an object which contains that song's fierceness and the average fierceness for all songs
 function songFiercenessByName() {
-    const songBreakdown = beyonceHash.hits.map(breakdown => "Title: " + breakdown.title + " - " + " Fierceness: " + breakdown.fierceness + " - " + " Fierceness Average: " + hitFiercenessAverage())
-    return songBreakdown
+    return beyonceHash.hits.map(hits => {
+        return {
+            Title: hits.title,
+            Fierceness: hits.fierceness,
+            AverageFierceness: hitFiercenessAverage()
+        }
+    })
 }
 console.log(songFiercenessByName())
 
 // 20. Return an object where the properties are movie names and the value is an object which contains that movie's rating and the average rating for all movies
 function movieRatingsByName() {
-    const movieNames = beyonceHash.movies.map(name => "Movie Title: " + name.title + " - " + " Rating: " + name.rating + " - " + " Rating Average: " + ratingAverage())
-    return movieNames
+    return beyonceHash.movies.map(movies => {
+        return {
+            Movies: movies.title,
+            Rating: movies.rating,
+            AverageRating: ratingAverage()
+        }
+    })
 }
 console.log(movieRatingsByName())
 
